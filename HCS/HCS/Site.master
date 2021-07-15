@@ -1,0 +1,79 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeFile="Site.Master.vb" Inherits="Site" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+    <div class="page">
+    <div class="login" style="background-color: #CCCCCC">
+                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">تسجيل الدخول</a> ]
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" 
+                            style="color: #000000" /></span>!
+                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/"/> ]
+                    </LoggedInTemplate>
+                </asp:LoginView>
+            </div>
+        <div class="header">
+            <div class="title">
+            </div>
+            <div class="loginDisplay" 
+                style="background-image: url('./images/hcs_baner.jpg'); height: 130px;">
+            </div>
+            <div class="clear hideSkiplink" dir="rtl" style="background-color: #9A935C">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="الرئيسية"/>
+                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="حول المشروع"/>
+                        <asp:MenuItem Text="تسجيل مستفيد" Value="تسجيل مستفيد"></asp:MenuItem>
+                        <asp:MenuItem Text="طلب خدمة" Value="طلب خدمة"></asp:MenuItem>
+                        <asp:MenuItem Text="الصيدلية" Value="الصيدلية"></asp:MenuItem>
+                        <asp:MenuItem Text="الخدمات" Value="الخدمات"></asp:MenuItem>
+                        <asp:MenuItem Text="الزيارات" Value="الزيارات"></asp:MenuItem>
+                        <asp:MenuItem Text="دليل المراكز" Value="دليل المراكز"></asp:MenuItem>
+                        <asp:MenuItem Text="اتصل بنا" Value="اتصل بنا"></asp:MenuItem>
+                        <asp:MenuItem Text="الإعدادات" Value="الإعدادات">
+                            <asp:MenuItem NavigateUrl="~/cp/region.aspx" Text="المناطق" Value="المناطق">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/cp/city.aspx" Text="المدن" Value="المدن">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/cp/neighborhood.aspx" Text="الأحياء" 
+                                Value="الأحياء"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/cp/services.aspx" Text="الخدمات" Value="الخدمات">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/cp/visit_type.aspx" Text="أنواع الزيارات" 
+                                Value="أنواع الزيارات"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/cp/illness.aspx" Text="الأمراض" Value="الأمراض">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/cp/nationality.aspx" Text="الجنسيات" 
+                                Value="الجنسيات"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/cp/job.aspx" Text="الوظائف" Value="الوظائف">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/cp/center.aspx" Text="المراكز" Value="المراكز">
+                            </asp:MenuItem>
+                        </asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+            </div>
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+        
+    </div>
+    </form>
+</body>
+</html>
